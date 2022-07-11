@@ -1,5 +1,5 @@
 #!/bin/zsh
-cd "${0%/*}"
+dir=$(cd -P -- "$(dirname -- "$0")" && pwd -P)
 
 # Copy config files
 cp -rf ./nvim ~/.config/
