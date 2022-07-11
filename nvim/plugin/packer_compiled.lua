@@ -69,6 +69,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["Comment.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\nstadler\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\Comment.nvim",
+    url = "https://github.com/numToStr/Comment.nvim"
+  },
   LuaSnip = {
     loaded = true,
     path = "C:\\Users\\nstadler\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\LuaSnip",
@@ -83,6 +88,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\nstadler\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
+  },
+  ["gitsigns.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\nstadler\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\gitsigns.nvim",
+    url = "https://github.com/lewis6991/gitsigns.nvim"
+  },
+  ["lualine.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\nstadler\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lualine.nvim",
+    url = "https://github.com/nvim-lualine/lualine.nvim"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -136,6 +151,21 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\nstadler\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-colors-github",
     url = "https://github.com/cormacrelf/vim-colors-github"
+  },
+  ["vim-fugitive"] = {
+    loaded = true,
+    path = "C:\\Users\\nstadler\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-fugitive",
+    url = "https://github.com/tpope/vim-fugitive"
+  },
+  ["vim-gutentags"] = {
+    loaded = true,
+    path = "C:\\Users\\nstadler\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-gutentags",
+    url = "https://github.com/ludovicchabant/vim-gutentags"
+  },
+  ["vim-rhubarb"] = {
+    loaded = true,
+    path = "C:\\Users\\nstadler\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-rhubarb",
+    url = "https://github.com/tpope/vim-rhubarb"
   }
 }
 

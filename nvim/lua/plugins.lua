@@ -14,12 +14,18 @@ require('packer').startup(function(use)
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rhubarb'
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
+  use 'numToStr/Comment.nvim'
   use 'nvim-treesitter/nvim-treesitter'
   use 'nvim-treesitter/nvim-treesitter-textobjects'
   use 'neovim/nvim-lspconfig'
+  use 'ludovicchabant/vim-gutentags'
+  use 'nvim-lualine/lualine.nvim'
+  use 'arkav/lualine-lsp-progress'
   use 'williamboman/nvim-lsp-installer'
+  use 'saadparwaiz1/cmp_luasnip'
   use { 'L3MON4D3/LuaSnip', requires = { 'saadparwaiz1/cmp_luasnip' } }
-  use { 'hrsh7th/nvim-cmp', requires = { 'hrsh7th/cmp-nvim-lsp' } }
+  use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/cmp-nvim-lsp'
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable "make" == 1 }
 
@@ -64,6 +70,21 @@ require('gitsigns').setup {
     changedelete = { text = '~' },
   },
 }
+
+--Set statusbar
+require('lualine').setup({
+  options = {
+    icons_enabled = false,
+    theme = 'onelight',
+    component_separators = '|',
+    section_separators = '',
+  },
+  sections = {
+		lualine_c = {
+			'lsp_progress'
+		}
+	}
+})
 
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
@@ -206,7 +227,7 @@ end
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 -- Enable the following language servers
-local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'sumneko_lua' }
+local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'sumneko_lua', 'angularls' }
 
 -- Ensure the servers above are installed
 require('nvim-lsp-installer').setup {
@@ -261,7 +282,7 @@ cmp.setup {
   mapping = cmp.mapping.preset.insert {
     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-Space>'] = cmp.mapping.complete({}),
     ['<CR>'] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
