@@ -1,6 +1,6 @@
 require('options')
-require('plugins')
 require('keybindings')
+require('plugins')
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
