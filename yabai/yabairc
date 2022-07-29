@@ -1,4 +1,8 @@
-#!/usr/bin/env sh
+#!/bin/zsh
+
+YABAI_SCRIPTS=${HOME}/.config/yabai/scripts
+SET_SPACE_LABELS=${YABAI_SCRIPTS}/set_space_labels.zsh
+SIMPLE_BAR_REFRESH="osascript -e 'tell application id \"tracesOf.Uebersicht\" to refresh widget id \"simple-bar-index-jsx\"'"
 
 # the scripting-addition must be loaded manually if
 # you are running yabai on macOS Big Sur. Uncomment
@@ -47,40 +51,43 @@ yabai -m config right_padding                5
 yabai -m config window_gap                   5 
 
 # Turn off management for certain apps
-yabai -m rule --add app="Discord" space=^2
-yabai -m rule --add app="FaceTime" space=^2
-yabai -m rule --add app="Mail" space=^2
-yabai -m rule --add app="Messages" space=^2
-yabai -m rule --add app="Signal" space=^2
-yabai -m rule --add app="Figma" space=^3
-yabai -m rule --add app="iTerm" space=^3
-yabai -m rule --add app="Terminal" space=^3
-yabai -m rule --add app="VSCodium" space=^3
-yabai -m rule --add app="Calendrier" space=^4
-yabai -m rule --add app="Contacts" space=^4
-yabai -m rule --add app="Obsidian" space=^4
-yabai -m rule --add app="Rappel" space=^4
-yabai -m rule --add app="Finder" space=^5
-yabai -m rule --add app="Préférences Système" space=^5 manage=off border=on
-yabai -m rule --add app="KeePassXC" space=^5
-yabai -m rule --add app="Preference" manage=off border=on
-yabai -m rule --add app="Spotlight" manage=off border=on
+yabai -m rule --add app="^Firefox$"             space=^1
+yabai -m rule --add app="^Safari$"              space=^1
+yabai -m rule --add app="^Discord$"             space=^2
+yabai -m rule --add app="^FaceTime$"            space=^2
+yabai -m rule --add app="^Mail$"                space=^2
+yabai -m rule --add app="^Messages$"            space=^2
+yabai -m rule --add app="^Signal$"              space=^2
+yabai -m rule --add app="^Figma$"               space=^3
+yabai -m rule --add app="^iTerm$"               space=^3
+yabai -m rule --add app="^Terminal$"            space=^3
+yabai -m rule --add app="^VSCodium$"            space=^3
+yabai -m rule --add app="^Calendrier$"          space=^4
+yabai -m rule --add app="^Contacts$"            space=^4
+yabai -m rule --add app="^Obsidian$"            space=^4
+yabai -m rule --add app="^Rappel$"              space=^4
+yabai -m rule --add app="^Infuse$"              space=^5
+yabai -m rule --add app="^Musique$"             space=^5
+yabai -m rule --add app="^VLC$"                 space=^5
+yabai -m rule --add app="^Finder$"              space=^6
+yabai -m rule --add app="^KeePassXC$"           space=^6
+yabai -m rule --add app="^Préférences$ Système" space=^6 manage=off border=on
+yabai -m rule --add app="^Preference$"                   manage=off border=on
+yabai -m rule --add app="^Spotlight$"                    manage=off border=on
 
-# space label
-yabai -m space 1 --label "1 all"
-yabai -m space 2 --label "2 msg"
-yabai -m space 3 --label "3 dev"
-yabai -m space 4 --label "4 org"
-yabai -m space 5 --label "5 utl"
+${SET_SPACE_LABELS}
 
 # Some Settings For Simple-Bar
-yabai -m signal --add event=space_changed action="osascript -e 'tell application id \"tracesOf.Uebersicht\" to refresh widget id \"simple-bar-index-jsx\"'" label="Refresh simple-bar on space change"
-yabai -m signal --add event=space_created action="osascript -e 'tell application id \"tracesOf.Uebersicht\" to refresh widget id \"simple-bar-index-jsx\"'" label="Refresh simple-bar on space creation"
-yabai -m signal --add event=space_changed action="osascript -e 'tell application id \"tracesOf.Uebersicht\" to refresh widget id \"simple-bar-index-jsx\"'" label="Refresh simple-bar on space change"
-yabai -m signal --add event=display_changed action="osascript -e 'tell application id \"tracesOf.Uebersicht\" to refresh widget id \"simple-bar-index-jsx\"'" label="Refresh simple-bar on display focus change"
-yabai -m signal --add event=window_focused action="osascript -e 'tell application id \"tracesOf.Uebersicht\" to refresh widget id \"simple-bar-index-jsx\"'" label="Refresh simple-bar when focused application changes"
-yabai -m signal --add event=window_resized action="osascript -e 'tell application id \"tracesOf.Uebersicht\" to refresh widget id \"simple-bar-index-jsx\"'" label="Refresh simple-bar when a window is resized"
-yabai -m signal --add event=application_front_switched action="osascript -e 'tell application id \"tracesOf.Uebersicht\" to refresh widget id \"simple-bar-index-jsx\"'" label="Refresh simple-bar when front application switched application changes"
-yabai -m signal --add event=window_destroyed action="osascript -e 'tell application id \"tracesOf.Uebersicht\" to refresh widget id \"simple-bar-index-jsx\"'" label="Refresh simple-bar when an application window is closed"
-yabai -m signal --add event=window_title_changed action="osascript -e 'tell application id \"tracesOf.Uebersicht\" to refresh widget id \"simple-bar-index-jsx\"'" label="Refresh simple-bar when current window title changes"
+yabai -m signal --add event=space_changed              action="${SIMPLE_BAR_REFRESH}" label="Refresh simple-bar on space change"
+yabai -m signal --add event=space_changed              action="${SIMPLE_BAR_REFRESH}" label="Refresh simple-bar on space change"
+yabai -m signal --add event=display_changed            action="${SIMPLE_BAR_REFRESH}" label="Refresh simple-bar on display focus change"
+yabai -m signal --add event=window_focused             action="${SIMPLE_BAR_REFRESH}" label="Refresh simple-bar when focused application changes"
+yabai -m signal --add event=window_resized             action="${SIMPLE_BAR_REFRESH}" label="Refresh simple-bar when a window is resized"
+yabai -m signal --add event=application_front_switched action="${SIMPLE_BAR_REFRESH}" label="Refresh simple-bar when front application switched application changes"
+yabai -m signal --add event=window_destroyed           action="${SIMPLE_BAR_REFRESH}" label="Refresh simple-bar when an application window is closed"
+yabai -m signal --add event=window_title_changed       action="${SIMPLE_BAR_REFRESH}" label="Refresh simple-bar when current window title changes"
+yabai -m signal --add event=space_changed              action="${SET_SPACE_LABELS}"   label="Refresh simple-bar on space creation"
+
+set +x
+
 echo "yabai configuration loaded.."
