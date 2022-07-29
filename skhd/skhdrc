@@ -95,24 +95,29 @@ cmd - return            : yabai -m space --create; \
                           index="$(yabai -m query --spaces --display | jq 'map(select(."is-native-fullscreen" == false))[-1].index')"; \
                           yabai -m space --focus "${index}"
 cmd + shift - backspace : yabai -m space --destroy
-cmd + shift - space     : yabai -m space --rotate 90
+# cmd + shift - space     : yabai -m space --rotate 90
 
 # focus window
-ctrl - up    : yabai -m window --focus north
-ctrl - right : yabai -m window --focus east
-ctrl - down  : yabai -m window --focus south
-ctrl - left  : yabai -m window --focus west
+# ctrl - up    : yabai -m window --focus north
+# ctrl - right : yabai -m window --focus east
+# ctrl - down  : yabai -m window --focus south
+# ctrl - left  : yabai -m window --focus west
 
 # move window
-ctrl + shift - up    : yabai -m window --warp north
-ctrl + shift - right : yabai -m window --warp east
-ctrl + shift - down  : yabai -m window --warp south
-ctrl + shift - left  : yabai -m window --warp west
+ctrl + shift - up    : yabai -m window --grid 2:1:0:0:1:1
+ctrl + shift - right : yabai -m window --grid 1:2:1:0:1:1
+ctrl + shift - down  : yabai -m window --grid 2:1:0:1:1:1
+ctrl + shift - left  : yabai -m window --grid 1:2:0:0:1:1
+ctrl + shift - u     : yabai -m window --grid 2:2:0:0:1:1
+ctrl + shift - i     : yabai -m window --grid 2:2:1:0:1:1
+ctrl + shift - k     : yabai -m window --grid 2:2:1:1:1:1
+ctrl + shift - j     : yabai -m window --grid 2:2:0:1:1:1
 
 # resize window
-ctrl + shift - return : yabai -m space --balance
-ctrl + shift - space  : yabai -m window --toggle float; \
-                        yabai -m window --grid 4:4:1:1:2:2
+ctrl + shift - return    : yabai -m window --grid 1:1:0:0:1:1
+ctrl + shift - backspace : yabai -m window --grid 4:4:1:1:2:2
+ctrl + shift - space     : yabai -m window --toggle float; \
+                           yabai -m window --grid 4:4:1:1:2:2
 
 # move focused window to space
 cmd + shift - right  : yabai -m window --space next; yabai -m space --focus next

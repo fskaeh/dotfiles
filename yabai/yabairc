@@ -43,12 +43,12 @@ yabai -m config mouse_action2                resize
 yabai -m config mouse_drop_action            swap
 
 # general space settings
-yabai -m config layout                       bsp
-yabai -m config top_padding                  5 
-yabai -m config bottom_padding               5 
-yabai -m config left_padding                 5  
-yabai -m config right_padding                5  
-yabai -m config window_gap                   5 
+yabai -m config layout                       float
+yabai -m config top_padding                  0 
+yabai -m config bottom_padding               0 
+yabai -m config left_padding                 0  
+yabai -m config right_padding                0  
+yabai -m config window_gap                   0 
 
 # Turn off management for certain apps
 yabai -m rule --add app="^Firefox$"                space=^1
@@ -64,18 +64,19 @@ yabai -m rule --add app="^VSCodium$"               space=^3
 yabai -m rule --add app="^Calendrier$"             space=^4
 yabai -m rule --add app="^Contacts$"               space=^4
 yabai -m rule --add app="^Obsidian$"               space=^4
-yabai -m rule --add app="^Rappel$"                 space=^4
+yabai -m rule --add app="^Rappels$"                 space=^4
 yabai -m rule --add app="^Infuse$"                 space=^5
 yabai -m rule --add app="^Musique$"                space=^5
 yabai -m rule --add app="^VLC$"                    space=^5
 yabai -m rule --add app="^Adguard$"                space=^6
 yabai -m rule --add app="^Finder$"                 space=^6
 yabai -m rule --add app="^KeePassXC$"              space=^6
-yabai -m rule --add app="^Préférences Système$"    space=^6 manage=off border=on
+yabai -m rule --add app="^Partage d'écran$"        space=^6 manage=on border=on
+yabai -m rule --add app="^Préférences Système$"    space=^6 manage=on border=on
 yabai -m rule --add app="^Transmission$"           space=^6
 yabai -m rule --add app="^Figma$"                  space=^7
-yabai -m rule --add app="^Spotlight$"                       manage=off border=on
-yabai -m rule --add title="Preference|Préférences"          manage=off border=on
+yabai -m rule --add app="^Spotlight$"                       manage=on border=on
+yabai -m rule --add title="Preference|Préférences"          manage=on border=on
 
 ${SET_SPACE_LABELS}
 
