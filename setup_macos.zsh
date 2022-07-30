@@ -2,8 +2,8 @@
 dir=$(cd -P -- "$(dirname -- "$0")" && pwd -P)
 
 # Copy config files
-cp -rf ./nvim ~/.config/
-cp -f ./ubersicht ~/.config/
+cp -f ./alacritty ~/.config/
+cp -f ./nvim ~/.config/
 cp -f ./skhd ~/.config/
 cp -f ./spacebar ~/.config/
 cp -f ./starship/starship.toml ~/.config/
