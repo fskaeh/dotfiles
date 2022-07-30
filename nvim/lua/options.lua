@@ -9,6 +9,7 @@ vim.opt.mouse = 'a'
 vim.opt.number = true
 vim.opt.rnu = true
 vim.opt.shiftwidth = 2
+vim.opt.splitright = true
 vim.opt.signcolumn = 'yes'
 vim.opt.smartcase = true
 vim.opt.tabstop = 2

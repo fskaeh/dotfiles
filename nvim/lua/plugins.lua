@@ -17,6 +17,12 @@ require('packer').startup(function(use)
   use 'numToStr/Comment.nvim'
   use 'nvim-treesitter/nvim-treesitter'
   use 'nvim-treesitter/nvim-treesitter-textobjects'
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = {
+      'kyazdani42/nvim-web-devicons',
+    },
+  }
   use 'neovim/nvim-lspconfig'
   use 'ludovicchabant/vim-gutentags'
   use 'nvim-lualine/lualine.nvim'
@@ -60,6 +66,26 @@ vim.api.nvim_create_autocmd('BufWritePost', {
 vim.g['github_colors_soft'] = 0
 vim.cmd [[ colorscheme github ]]
 
+-- NVIM Tree
+require("nvim-tree").setup({
+  sort_by = "case_sensitive",
+  view = {
+    adaptive_size = true,
+    side = "left",
+    mappings = {
+      list = {
+        { key = "u", action = "dir_up" },
+      },
+    },
+  },
+  renderer = {
+    group_empty = true,
+  },
+  filters = {
+    custom = { "^.git$", "^.DS_Store$" }
+  },
+})
+
 -- Gitsigns
 -- See `:help gitsigns.txt`
 require('gitsigns').setup {
@@ -91,12 +117,23 @@ require('lualine').setup({
 -- See `:help telescope` and `:help telescope.setup()`
 require('telescope').setup {
   defaults = {
-    file_ignore_patterns = { "node_modules", "yarn.lock", "dist", ".angular", ".git" },
+    file_ignore_patterns = { "node_modules", "yarn.lock", "dist", ".angular", ".git", ".DS_Store", "Library" },
     mappings = {
       i = {
         ['<C-u>'] = false,
         ['<C-d>'] = false,
       },
+    },
+  },
+  pickers = {
+    find_files = {
+      hidden = true,
+    },
+    live_grep = {
+      hidden = true,
+    },
+    old_files = {
+      hidden = true,
     },
   },
 }
