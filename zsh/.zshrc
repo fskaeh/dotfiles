@@ -77,8 +77,6 @@ plugins=(
   tmux
 )
 
-export ZSH_TMUX_AUTOSTART=true
-export ZSH_TMUX_AUTOCONNECT=true
 export ZSH_TMUX_AUTOQUIT=false
 export ZSH_TMUX_CONFIG=$XDG_CONFIG_HOME/tmux/tmux.conf
 source $ZSH/oh-my-zsh.sh
