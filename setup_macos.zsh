@@ -7,7 +7,7 @@ cp -rf ./nvim ~/.config/
 cp -rf ./skhd ~/.config/
 cp -rf ./spacebar ~/.config/
 cp -f ./starship/starship.toml ~/.config/
-cp -rf ./tmux/.tmux.conf ~/
+cp -rf ./tmux ~/.config/
 cp -rf ./yabai ~/.config/
 cp -f ./zsh/.zshrc ~/
 defaults import com.googlecode.iterm2 ./iterm2/com.googlecode.iterm2.plist

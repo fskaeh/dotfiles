@@ -1,5 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+export XDG_CONFIG_HOME=$HOME/.config
 export GOPATH=$HOME/.go
 
 # Path to your oh-my-zsh installation.
@@ -77,7 +78,9 @@ plugins=(
 )
 
 export ZSH_TMUX_AUTOSTART=true
-
+export ZSH_TMUX_AUTOCONNECT=true
+export ZSH_TMUX_AUTOQUIT=false
+export ZSH_TMUX_CONFIG=$XDG_CONFIG_HOME/tmux/tmux.conf
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
