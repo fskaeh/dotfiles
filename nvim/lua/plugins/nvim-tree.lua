@@ -6,7 +6,9 @@ require("nvim-tree").setup({
     side = "left",
     mappings = {
       list = {
-        { key = "u", action = "dir_up" },
+        {
+          key = "u", action = "dir_up",
+        },
       },
     },
   },
@@ -18,4 +20,8 @@ require("nvim-tree").setup({
   },
 })
 
+-- Keybindings
+vim.keymap.set('n', '<C-n>f', ':NvimTreeCollapse<CR>', { desc = '[f]ind current file in tree' })
+vim.keymap.set('n', '<C-n>f', ':NvimTreeFindFile<CR>', { desc = '[f]ind current file in tree' })
+vim.keymap.set('n', '<C-n>t', ':NvimTreeToggle<CR>', { desc = '[t]oggle Nvim Tree' })
 

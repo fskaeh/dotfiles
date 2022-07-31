@@ -34,7 +34,7 @@ require('packer').startup(function(use)
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable "make" == 1 }
 
-  if is_bootstrap then
+  if packer_bootstrap then
     require('packer').sync()
   end
 end)
@@ -44,7 +44,7 @@ end)
 -- make sense to execute the rest of the init.lua.
 --
 -- You'll need to restart nvim, and then it will work.
-if is_bootstrap then
+if packer_bootstrap then
   print '=================================='
   print '    Plugins are being installed'
   print '    Wait until Packer completes,'

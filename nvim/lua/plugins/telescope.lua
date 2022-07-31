@@ -27,10 +27,10 @@ pcall(require('telescope').load_extension, 'fzf')
 
 -- Keybindings
 vim.keymap.set('n', '<C-p>F', require('telescope.builtin').live_grep, { desc = '[F]ind text in project' })
-vim.keymap.set('n', '<C-p>r', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
-vim.keymap.set('n', '<C-p>h', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
-vim.keymap.set('n', '<C-p>d', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
-vim.keymap.set('n', '<C-p>f', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
+vim.keymap.set('n', '<C-p>r', require('telescope.builtin').oldfiles, { desc = 'Find [r]ecently opened files' })
+vim.keymap.set('n', '<C-p>h', require('telescope.builtin').help_tags, { desc = 'Search [h]elp' })
+vim.keymap.set('n', '<C-p>d', require('telescope.builtin').diagnostics, { desc = 'Search [d]iagnostics' })
+vim.keymap.set('n', '<C-p>f', require('telescope.builtin').find_files, { desc = 'Search [f]iles' })
 vim.keymap.set('n', '<C-p><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
 vim.keymap.set('n', '<C-p>/', function()
   -- You can pass additional configuration to telescope to change theme, layout, etc.
