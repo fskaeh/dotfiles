@@ -1,14 +1,17 @@
-require('options')
-require('keybindings')
-require('plugins')
+-- [[ NVIM configs ]]
+require('nvim/options')
+require('nvim/keybindings')
+require('nvim/cmd')
 
--- [[ Highlight on yank ]]
--- See `:help vim.highlight.on_yank()`
-local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
-vim.api.nvim_create_autocmd('TextYankPost', {
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-  group = highlight_group,
-  pattern = '*',
-})
+-- [[ Plugin configs ]]
+require('plugins/packer')
+require('plugins/github')
+require('plugins/treesitter')
+require('plugins/telescope')
+require('plugins/nvim-tree')
+require('plugins/lualine')
+require('plugins/gitsigns')
+
+-- [[ LSP configs ]]
+require('lsp/lsp')
+
