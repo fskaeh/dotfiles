@@ -39,18 +39,12 @@ yabai -m config mouse_action2                resize
 yabai -m config mouse_drop_action            swap
 
 # general space settings
-yabai -m config layout                       bsp
-yabai -m config top_padding                  5 
-yabai -m config bottom_padding               5 
-yabai -m config left_padding                 5  
-yabai -m config right_padding                5  
-yabai -m config window_gap                   5 
-
-# rules
-yabai -m rule --add app="^Spotlight$"                       manage=off border=on
-yabai -m rule --add app="^Partage d'écran$"                 manage=off border=on
-yabai -m rule --add app="^Préférences Système$"             manage=off border=on
-yabai -m rule --add title="Preference|Préférences"          manage=off border=on
+yabai -m config layout                       float
+yabai -m config top_padding                  0 
+yabai -m config bottom_padding               0 
+yabai -m config left_padding                 0  
+yabai -m config right_padding                0  
+yabai -m config window_gap                   0 
 
 set +x
 

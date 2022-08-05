@@ -99,29 +99,26 @@ cmd + shift - return    : yabai -m space  --create; \
                           yabai -m window --space "${index}"; \
                           yabai -m space --focus "${index}"
 cmd + shift - backspace : yabai -m space --destroy
-cmd + shift - space : yabai -m space --rotate 270
-cmd + shift - b     : yabai -m space --layout bsp
-cmd + shift - f     : yabai -m space --layout float
-cmd + shift - s     : yabai -m space --layout stack
 
 # focus window
 ctrl - up    : yabai -m window --focus north
 ctrl - right : yabai -m window --focus east
 ctrl - down  : yabai -m window --focus south
 ctrl - left  : yabai -m window --focus west
-ctrl - 0x18     : yabai -m window --focus stack.next
-ctrl - 0x1B     : yabai -m window --focus stack.prev
 
 # move window
-ctrl + shift - up    : yabai -m window --warp north
-ctrl + shift - right : yabai -m window --warp east
-ctrl + shift - down  : yabai -m window --warp south
-ctrl + shift - left  : yabai -m window --warp west
+ctrl + shift - up    : yabai -m window --grid 2:1:0:0:1:1
+ctrl + shift - right : yabai -m window --grid 1:2:1:0:1:1
+ctrl + shift - down  : yabai -m window --grid 2:1:0:1:1:1
+ctrl + shift - left  : yabai -m window --grid 1:2:0:0:1:1
+ctrl + shift - u     : yabai -m window --grid 2:2:0:0:1:1
+ctrl + shift - i     : yabai -m window --grid 2:2:1:0:1:1
+ctrl + shift - k     : yabai -m window --grid 2:2:1:1:1:1
+ctrl + shift - j     : yabai -m window --grid 2:2:0:1:1:1
 
 # resize window
-cmd + shift - f     : yabai -m window --toggle float; \
-                      yabai -m window --grid 4:4:1:1:2:2
-cmd + shift - s     : yabai -m window --stack next
+ctrl + shift - return    : yabai -m window --grid 1:1:0:0:1:1
+ctrl + shift - backspace : yabai -m window --grid 4:4:1:1:2:2
 
 # move focused window to space
 cmd + shift - right  : yabai -m window --space next; yabai -m space --focus next
