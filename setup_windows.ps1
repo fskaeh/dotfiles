@@ -1,7 +1,7 @@
 if (Test-Path ~/.config/alacritty) {
   Remove-Item -Recurse -Force ~/.config/alacritty
 }
-Copy-Item -Force -Recurse ./alacritty ~/config
+Copy-Item -Force -Recurse ./alacritty ~/.config
 if (Test-Path ~/.config/starship.toml) {
   Remove-Item -Force ~/.config/starship.toml
 }
