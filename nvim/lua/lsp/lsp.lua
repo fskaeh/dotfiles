@@ -42,13 +42,13 @@ local on_attach = function(_, bufnr)
 end
 
 -- nvim-cmp supports additional completion capabilities
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 -- Enable the following language servers
 local servers = { 'clangd', 'rust_analyzer', 'eslint', 'html', 'cssls', 'gopls', 'ocamllsp', 'pyright', 'tsserver', 'sumneko_lua', 'angularls' }
 
 -- Ensure the servers above are installed
-require('nvim-lsp-installer').setup {
+require('mason').setup {
   ensure_installed = servers,
 }
 

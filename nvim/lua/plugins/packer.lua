@@ -21,11 +21,8 @@ require('packer').startup(function(use)
       'kyazdani42/nvim-web-devicons',
     },
   }
-  use 'neovim/nvim-lspconfig'
   use 'ludovicchabant/vim-gutentags'
   use 'nvim-lualine/lualine.nvim'
-  use 'arkav/lualine-lsp-progress'
-  use 'williamboman/nvim-lsp-installer'
   use 'saadparwaiz1/cmp_luasnip'
   use { 'L3MON4D3/LuaSnip', requires = { 'saadparwaiz1/cmp_luasnip' } }
   use 'hrsh7th/nvim-cmp'

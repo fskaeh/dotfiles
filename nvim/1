@@ -6,12 +6,12 @@ require('nvim/cmd')
 -- [[ Plugin configs ]]
 require('plugins/packer')
 require('plugins/github')
-require('plugins/treesitter')
-require('plugins/telescope')
-require('plugins/nvim-tree')
+--require('plugins/treesitter')
+--require('plugins/telescope')
+--require('plugins/nvim-tree')
 require('plugins/lualine')
 require('plugins/gitsigns')
 
 -- [[ LSP configs ]]
--- require('lsp/lsp')
+--require('lsp/lsp')
 
